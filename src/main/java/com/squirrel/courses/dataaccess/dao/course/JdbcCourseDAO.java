@@ -51,6 +51,16 @@ public class JdbcCourseDAO implements CourseDAO{
     }
 
     @Override
+    public boolean editCourse(Course course) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteCourse(int id) {
+        return false;
+    }
+
+    @Override
     public List<Course> findCoursesByLecturer(String lecturer) {
         String sql = "SELECT id, course_name, theme, description FROM course WHERE lecturer = ? ";
         Connection conn = null;
