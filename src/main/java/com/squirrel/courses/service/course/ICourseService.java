@@ -10,7 +10,6 @@ public interface ICourseService {
     Course getCourseById(int id);
     List<Course> getAllCourses();
     List<String> getAllThemes();
-    List<Course> getLecturerCourses(String lecturer);
     List<String> getLecturerCourseThemes(String lecturer);
     List<Course> getCoursesByName(String name);
     List<Course> getCoursesByTheme(String theme);

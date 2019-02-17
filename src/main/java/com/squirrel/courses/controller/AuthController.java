@@ -68,7 +68,7 @@ public class AuthController {
      * Controller method to show user's information if he's lecturer.
      */
     public String showLecturerInfo(Model model, Principal principal){
-        List<Course> courses = courseService.getLecturerCourses(principal.getName());
+        List<Course> courses = courseService.getCoursesByLecturer(principal.getName());
         List<String> lecturerThemes = courseService.getLecturerCourseThemes(principal.getName());
         AppUser user = userService.findByLogin(principal.getName());
 
