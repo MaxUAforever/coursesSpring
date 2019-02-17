@@ -1,4 +1,24 @@
-.aboutUs p {
+.content {
+    height: 600px;
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.logo{
+    height: 400px;
+    width: 300px;
+}
+
+.logo_img{
+    position: absolute;
+    min-height: 300px;
+    height: 300px;
+    width: 300px;
+}
+
+.aboutText p {
+    margin-left: 420px;
     font-family: Helvetica;
-    margin-bottom: 25px;
+    font-size: 18px;
 }

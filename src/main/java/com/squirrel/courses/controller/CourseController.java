@@ -148,6 +148,6 @@ public class CourseController {
      */
     @GetMapping({"/about"})
     public String showAboutPage(){
-        return "aboutPage";
+        return "about";
     }
 }

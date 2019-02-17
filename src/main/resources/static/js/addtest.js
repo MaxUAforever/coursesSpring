@@ -1,3 +1,7 @@
+function cancel_test(){
+    /*document.getElementById("cancelForm").submit();*/
+}
+
 function save_test(){
     var q_num = document.getElementById("q_num").value;
 

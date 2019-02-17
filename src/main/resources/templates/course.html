@@ -67,7 +67,7 @@
             <div id="buttOfCourseInfo" th:if="${isAuthor}" th:switch="${edit}">
 
                 <button th:case='true' onclick="updateCourse()">Save</button>
-                <<form id="data_send1" method="post" th:action="@{/editcourse}">
+                <form id="data_send1" method="post" th:action="@{/editcourse}">
                     <input type="hidden" name="courseId" th:value="${course.getId()}">
                     <input hidden="true" id="courseTitle" name="courseTitle" value="">
                     <input hidden="true" id="courseTheme" name="theme" value="">

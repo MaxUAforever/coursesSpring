@@ -29,8 +29,11 @@
             <div id="questContent"></div>
             <div class="testButtons">
                 <button class="button_main" onclick="save_test();">Save Test</button>
-                <button class="button_main" name="button_cancel" onclick="openPopUpConf()">Cancel</button>
+                <!--<button class="button_main" onclick="cancel_test();">Cancel</button>-->
             </div>
+        </form>
+        <form th:action="@{/course}" id="cancelForm">
+            <input type="hidden" name="courseId" th:value="${course.getId()}">
         </form>
     </div>
 </body>

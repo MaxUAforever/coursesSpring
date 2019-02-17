@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Main page</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/aboutPage.css}">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"/>
+
+    <div class="content">
+        <h1 align="center">About</h1>
+        <div class="logo">
+            <img th:src="@{/img/secret-squirrel.jpg}" class="logo_img">
+        </div>
+        <div class="aboutText">
+            <p>
+                This is an project of course management system, created and updated by team of four students.
+                Our project increase access to education and teaching for everyone.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
