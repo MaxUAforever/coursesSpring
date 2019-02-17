@@ -42,9 +42,6 @@ public class LessonServiceTest {
     @MockBean
     private LessonDAO lessonDAO;
 
-    @MockBean
-    private CourseDAO courseDao;
-
     /**
      * Set up test data and configuration.
      */
