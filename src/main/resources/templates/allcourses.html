@@ -3,29 +3,30 @@
 <head>
     <meta charset="utf-8">
     <title>Main page</title>
-    <!--<link rel="stylesheet" href="css/page_with_courses.css">
-    <link rel="stylesheet" href="header/my.css">-->
-
-    <div th:replace="fragments/header :: header-css"/>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/allcourses.css}">
-    <script th:src="@{/js/allcourses.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 <body>
-    <div th:replace="fragments/header :: header"/>
+    <!--<div th:replace="fragments/header :: header"/>-->
 
     <div class="content">
 
         <div class="leftMainCol">
             <div id="specs">
                 <h2>Specializations</h2>
+
+                <!--
                 <div th:each="theme: ${themes}">
                     <a th:href="@{/allcourses(theme=${theme})}" th:text="${'- ' + theme}"></a>
                 </div>
+                -->
             </div>
         </div>
 
-        <div class="rightMainCol" th:each="course: ${courses}">
+        <div class="rightMainCol">
+            <!--
             <div id="courseCard">
                 <div class="centerPart">
                     <h2 id="courseNameAndDescr" th:text="${course.getCourseName() + ': ' + course.getTheme()}"></h2>
@@ -46,14 +47,9 @@
                     </form>
                 </div>
             </div>
-
-            <div class="popupcont" id="popupcont">
-                <div class="popup" id="popup">
-                    <div class="operstatus"><%=request.getAttribute("textMsg")%></div>
-                    <button class="close" onclick="closePopUp()">OK</button>
-                </div>
-            </div>
+            -->
         </div>
     </div>
+    <script th:src="@{/js/main.js}"></script>
 </body>
 </html>
