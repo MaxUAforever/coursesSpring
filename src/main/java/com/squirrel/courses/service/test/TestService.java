@@ -21,7 +21,7 @@ import java.util.List;
 public class TestService implements ITestService{
 
     @Autowired
-    private TestRepository stRepository;
+    private TestRepository testRepository;
 
     @Autowired
     private QuestionRepository questionRepository;
@@ -31,29 +31,29 @@ public class TestService implements ITestService{
 
     @Override
     public Test findTestById(int id){
-        return stRepository.findTestById(id);
+        return testRepository.findTestById(id);
     }
 
     @Override
     public Test findTestByLesson(int lesson){
-        return stRepository.findTestByLesson(lesson);
+        return testRepository.findTestByLesson(lesson);
     }
 
     @Override
     public Test findExamByCourse(int course){
-        return stRepository.findExamByCourse(course);
+        return testRepository.findExamByCourse(course);
     }
 
     @Override
     public  boolean addTest(Test test){
-        return (stRepository.save(test)!=null);
+        return (testRepository.save(test)!=null);
     }
 
     @Override
     public boolean deleteTest(int id){
         Test test = findTestById(id);
         if (test!=null){
-            stRepository.delete(test);
+            testRepository.delete(test);
             return true;
         }
         return false;
@@ -61,7 +61,7 @@ public class TestService implements ITestService{
 
     @Override
     public int getLastTest(){
-        return stRepository.getLastTest();
+        return testRepository.getLastTest();
     }
 
     @Override
