@@ -49,11 +49,6 @@ public class CourseService implements ICourseService {
     }
 
     @Override
-    public List<String> getLecturerCourseThemes(String lecturer) {
-      return courseDAO.findCoursesThemesByLecturer(lecturer);
-    }
-
-    @Override
     public List<String> getAllThemes(){
         return courseRepository.getAllThemes();
     }
@@ -73,4 +68,8 @@ public class CourseService implements ICourseService {
         return courseRepository.getCoursesByTheme(theme);
     }
 
+    @Override
+    public List<Course> getCoursesByLecturer(String lecturer) {
+        return courseRepository.getCoursesByLecturer(lecturer);
+    }
 }
