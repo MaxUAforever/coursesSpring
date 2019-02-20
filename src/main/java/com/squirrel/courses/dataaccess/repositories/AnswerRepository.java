@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AnswerRepository extends CrudRepository<Answer,Integer> {
+public interface AnswerRepository extends CrudRepository<Answer, Integer> {
 
     @Query(value = "SELECT a FROM Answer a WHERE a.question = :quest")
     List<Answer> findAnswersByQuestion(@Param("quest") int quest);

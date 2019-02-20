@@ -9,12 +9,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface QuestionRepository extends CrudRepository <Question,Integer> {
+public interface QuestionRepository extends CrudRepository <Question, Integer> {
 
     @Query(value = "SELECT q FROM Question q WHERE q.test = :test")
     List<Question> findQuestionsByTest(@Param("test")int test);
 
     @Query(value = "SELECT MAX(q.id) FROM Question q")
     int getLastQuestion();
-
 }

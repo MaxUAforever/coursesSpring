@@ -52,7 +52,7 @@ public class TestService implements ITestService{
     @Override
     public boolean deleteTest(int id){
         Test test = findTestById(id);
-        if (test!=null){
+        if (test != null){
             testRepository.delete(test);
             return true;
         }
@@ -71,8 +71,7 @@ public class TestService implements ITestService{
 
     @Override
     public boolean addQuestion(Question quest){
-        if (questionRepository.save(quest)!=null) return true;
-        return false;
+        return (questionRepository.save(quest)!=null);
     }
 
     @Override
@@ -85,7 +84,6 @@ public class TestService implements ITestService{
     }
 
     public boolean addAnswer(Answer ans){
-        if (answerRepository.save(ans)!=null) return true;
-        return false;
+        return (answerRepository.save(ans)!=null);
     }
 }

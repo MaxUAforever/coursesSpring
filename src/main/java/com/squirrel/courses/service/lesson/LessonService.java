@@ -1,6 +1,5 @@
 package com.squirrel.courses.service.lesson;
 
-import com.squirrel.courses.dataaccess.dao.lesson.ILessonDAO;
 import com.squirrel.courses.dataaccess.model.Lesson;
 import com.squirrel.courses.dataaccess.repositories.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;

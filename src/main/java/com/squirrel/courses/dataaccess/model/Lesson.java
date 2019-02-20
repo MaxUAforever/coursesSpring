@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name="lesson")
+@Table (name = "lesson")
 public class Lesson implements Comparable<Lesson>{
     @Id
     @Column(name = "id")

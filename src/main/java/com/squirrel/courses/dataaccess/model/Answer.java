@@ -9,20 +9,20 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="answer")
+@Table(name = "answer")
 public class Answer {
     @Id
     @Column (name = "id")
     private int id;
 
-    @Column (name="question")
+    @Column (name = "question")
     private int question;
 
-    @Column (name="a_text")
+    @Column (name = "a_text")
     private String ansText;
 
     /** Var coef defines correctness of answer from 0(absolutely wrong) to 1(absolutely right). */
-    @Column (name="coefficient")
+    @Column (name = "coefficient")
     private double coef;
 
     public Answer(int id, int question, String ansText, double coef) {
