@@ -30,6 +30,14 @@ public class Lesson implements Comparable<Lesson>{
     @Column(name = "material")
     private String material;
 
+    public Lesson(){
+        id = 0;
+        course = 0;
+        lessName = "";
+        description = "";
+        material = "";
+    }
+
     public Lesson(int id, int course, String lessName, String description, String material) {
         this.id = id;
         this.course = course;

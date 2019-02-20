@@ -32,10 +32,14 @@ public class Test {
     @Column(name = "evaluation")
     private int evaluation;
 
-    @Column(name = "isExam")
+    @Column(name = "is_exam")
     private byte isExam;
 
     public Test() {
+        id = 0;
+        lesson = 0;
+        evaluation = 0;
+        isExam = 0;
     }
 
     public Test(int id, int lesson, int evaluation, byte isExam) {

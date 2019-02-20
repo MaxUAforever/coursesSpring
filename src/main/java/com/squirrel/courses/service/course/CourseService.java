@@ -38,14 +38,14 @@ public class CourseService implements ICourseService {
 
     @Override
     public boolean deleteCourse(int id){
-       Course course = courseRepository.findOne(id);
+       Course course = courseRepository.getCourseById(id);
         courseRepository.delete(course);
         return true;
     }
 
     @Override
     public Course getCourseById(int id){
-        return courseRepository.findOne(id);
+        return courseRepository.getCourseById(id);
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface TestRepository extends CrudRepository<Test,Integer> {
     @Query(value="SELECT t FROM Test t WHERE t.id=:id")
     Test findTestById(@Param("id") int id);
 
-    @Query(value="SELECT t FROM Test t WHERE t.isExam=0 AND t.lesson=:lesson")
+    @Query(value="SELECT t FROM Test t WHERE t.isExam=0 AND t.lesson = :lesson")
     Test findTestByLesson(@Param("lesson") int lesson);
 
     @Query(value="SELECT t FROM Test t WHERE t.lesson=:course AND t.isExam=1")
