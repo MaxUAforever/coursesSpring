@@ -20,9 +20,6 @@ public interface CourseRepository extends CrudRepository <Course,Integer> {
     @Query(value="SELECT DISTINCT t.theme FROM Course t")
     List<String> getAllThemes();
 
-    @Query(value="SELECT c FROM Course c WHERE c.lecturer = :lecturer")
-    List<Course> getLecturerCourses(@Param ("lecturer") String lecturer);
-
     @Query(value="SELECT DISTINCT t.theme FROM Course t WHERE t.lecturer = :lecturer")
     List<String> getLecturerCourseThemes(@Param("lecturer") String lecturer);
 
@@ -32,4 +29,6 @@ public interface CourseRepository extends CrudRepository <Course,Integer> {
     @Query(value="SELECT c FROM Course c WHERE c.theme = :theme")
     List<Course> getCoursesByTheme(@Param("theme") String theme);
 
+    @Query(value="SELECT c FROM Course c WHERE c.lecturer = :lecturer")
+    List<Course> getCoursesByLecturer(@Param("lecturer") String lecturer);
 }
