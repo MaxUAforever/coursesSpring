@@ -20,7 +20,7 @@ import java.util.*;
  * Class CourseController realizes controller's methods related to working with course/courses.
  *
  * @author    Vladislava Prokopenko
- */
+*/
 @Controller
 public class CourseController {
     private static final String MESSAGE = "message";
