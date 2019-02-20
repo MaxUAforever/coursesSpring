@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CourseRepository extends CrudRepository <Course,Integer> {
+public interface CourseRepository extends CrudRepository <Course, Integer> {
 
     @Query(value = "SELECT c FROM Course c WHERE c.id = :id")
     Course getCourseById(@Param ("id") int id);

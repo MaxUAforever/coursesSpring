@@ -16,24 +16,12 @@ public class CourseService implements ICourseService {
 
     @Override
     public List<Course> getAllCourses() {
-        List<Course> list = courseRepository.findAllCourses();
-        return list;
+        return courseRepository.findAllCourses();
     }
 
     @Override
     public boolean addCourse(Course course){
-        if (courseRepository.save(course)!=null){
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean editCourse(Course course){
-        if (courseRepository.save(course)!=null){
-            return true;
-        }
-        return false;
+        return (courseRepository.save(course) != null);
     }
 
     @Override

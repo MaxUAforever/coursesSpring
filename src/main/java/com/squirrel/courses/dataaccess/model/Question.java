@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @author    Natalie Tkachenko
  */
 @Entity
-@Table (name="question")
+@Table (name = "question")
 public class Question implements Comparable<Question>{
     @Id
     @Column(name = "id")
@@ -24,7 +24,8 @@ public class Question implements Comparable<Question>{
    @Column(name = "points")
     private int points;
 
-    /** Var isOpen defines the format of question.
+    /**
+     * Var isOpen defines the format of question.
      * Value 0 for close format with ready-made answer options.
      * Value 1 for open format.
      */
