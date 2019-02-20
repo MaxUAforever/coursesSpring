@@ -89,20 +89,6 @@ public class LessonDAO extends JdbcDaoSupport implements ILessonDAO {
     }
 
     @Override
-    public List<Lesson> getLessonsByName(String name) {
-        String sql = LessonMapper.BASE_SQL + " WHERE less_name = ?";
-
-        Object[] params = new Object[]{name};
-        LessonMapper mapper = new LessonMapper();
-
-        try {
-            return getJdbcTemplate().query(sql, params, mapper);
-        } catch (EmptyResultDataAccessException e){
-            return Collections.emptyList();
-        }
-    }
-
-    @Override
     public boolean addLesson(Lesson lesson) {
 
         String sql = LessonMapper.INSERT_SQL + " VALUES(?, ?, ?, ? ,?)";

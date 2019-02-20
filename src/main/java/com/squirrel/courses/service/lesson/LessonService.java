@@ -2,6 +2,7 @@ package com.squirrel.courses.service.lesson;
 
 import com.squirrel.courses.dataaccess.dao.lesson.ILessonDAO;
 import com.squirrel.courses.dataaccess.model.Lesson;
+import com.squirrel.courses.dataaccess.repositories.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -14,29 +15,25 @@ import java.util.List;
 @Service
 public class LessonService implements ILessonService{
 
-    private ILessonDAO lessonDAO;
-
     @Autowired
-    public void setLessonDAO(ILessonDAO lessonDAO) {
-        this.lessonDAO = lessonDAO;
-    }
+    private LessonRepository lessonRepository;
 
     @Override
     public List<Lesson> getLessonsByCourse(int courseId){
-        return lessonDAO.allLessonsByCourse(courseId);
+        return lessonRepository.allLessonsByCourse(courseId);
     }
 
     @Override
-    public boolean addLesson(Lesson lesson){
-        return lessonDAO.addLesson(lesson);
+    public void addLesson(Lesson lesson){
+        lessonRepository.save(lesson);
     }
 
     @Override
-    public Lesson getLessonById(int lessonId) {return lessonDAO.getLessonByID(lessonId);}
+    public Lesson getLessonById(int lessonId) {return lessonRepository.getLessonByID(lessonId);}
 
     @Override
-    public boolean deleteLesson(int id) {
-        return lessonDAO.deleteLesson(id);
+    public void deleteLesson(int id) {
+        lessonRepository.delete(lessonRepository.getLessonByID(id));
     }
 
 

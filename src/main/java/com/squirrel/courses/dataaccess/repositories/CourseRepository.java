@@ -12,7 +12,7 @@ import java.util.List;
 public interface CourseRepository extends CrudRepository <Course,Integer> {
 
     @Query(value = "SELECT c FROM Course c WHERE c.id = :id")
-    Course findOne(@Param ("id") int id);
+    Course getCourseById(@Param ("id") int id);
 
     @Query(value = "SELECT c FROM Course c ")
     List<Course> findAllCourses();
@@ -31,4 +31,7 @@ public interface CourseRepository extends CrudRepository <Course,Integer> {
 
     @Query(value="SELECT c FROM Course c WHERE c.lecturer = :lecturer")
     List<Course> getCoursesByLecturer(@Param("lecturer") String lecturer);
+
+    @Query(value = "SELECT c.courseName FROM Course c WHERE c.id = :id")
+    String getCourseName(@Param("id") int id);
 }

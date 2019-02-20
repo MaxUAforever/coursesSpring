@@ -84,12 +84,9 @@ public class LessonController {
         }
 
         Lesson lesson = new Lesson(courseId, lessName, description, material);
-        boolean success = lessonService.addLesson(lesson);
+        lessonService.addLesson(lesson);
 
-        if (success)
-            model.addAttribute(MESSAGE, "Lesson is added!");
-        else
-            model.addAttribute(MESSAGE, "Lesson adding failed!");
+        model.addAttribute(MESSAGE, "Lesson is added!");
 
         return new ModelAndView("redirect:/course?courseId=" + courseId, model);
     }
