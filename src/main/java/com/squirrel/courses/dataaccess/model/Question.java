@@ -1,22 +1,34 @@
 package com.squirrel.courses.dataaccess.model;
 
+import javax.persistence.*;
+
 /**
  * Class Question represents the entity of question from test with main information about it.
  *
  * @author    Natalie Tkachenko
  */
+@Entity
+@Table (name="question")
 public class Question implements Comparable<Question>{
+    @Id
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "test")
     private int test;
+
+    @Column(name = "q_text")
     private String questText;
 
     /** Var points defines maximal count of points which user can earn for answering this question. */
+   @Column(name = "points")
     private int points;
 
     /** Var isOpen defines the format of question.
      * Value 0 for close format with ready-made answer options.
      * Value 1 for open format.
      */
+    @Column(name = "isOpen")
     private byte isOpen;
 
     public Question(int id, int test, String questText, int points, byte isOpen) {

@@ -30,7 +30,7 @@ public class LessonController {
     private ICourseService courseService;
 
     @Autowired
-    public LessonController(ILessonService lessonService, ICourseService courseService, ITestService testService){
+    public LessonController(ILessonService lessonService, ICourseService courseService){
         this.lessonService = lessonService;
         this.courseService = courseService;
     }
