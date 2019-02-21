@@ -1,16 +1,42 @@
 package com.squirrel.courses.dataaccess.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Class Lesson represents the entity of educational lecture with main information about it.
  *
  * @author    Vladislava Prokopenko
  */
+
+@Entity
+@Table (name = "lesson")
 public class Lesson implements Comparable<Lesson>{
+    @Id
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "course")
     private int course;
+
+    @Column(name = "less_name")
     private String lessName;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "material")
     private String material;
+
+    public Lesson(){
+        id = 0;
+        course = 0;
+        lessName = "";
+        description = "";
+        material = "";
+    }
 
     public Lesson(int id, int course, String lessName, String description, String material) {
         this.id = id;

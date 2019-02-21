@@ -5,7 +5,6 @@ import java.util.List;
 
 public interface ICourseService {
     boolean addCourse(Course course);
-    boolean editCourse(Course course);
     boolean deleteCourse(int id);
     Course getCourseById(int id);
     List<Course> getAllCourses();

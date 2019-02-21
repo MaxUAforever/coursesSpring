@@ -1,11 +1,11 @@
 package com.squirrel.courses.service.test;
 
-import com.squirrel.courses.dataaccess.dao.test.IAnswerDAO;
-import com.squirrel.courses.dataaccess.dao.test.IQuestionDAO;
-import com.squirrel.courses.dataaccess.dao.test.ITestDAO;
+import com.squirrel.courses.dataaccess.model.Test;
 import com.squirrel.courses.dataaccess.model.Answer;
 import com.squirrel.courses.dataaccess.model.Question;
-import com.squirrel.courses.dataaccess.model.Test;
+import com.squirrel.courses.dataaccess.repositories.AnswerRepository;
+import com.squirrel.courses.dataaccess.repositories.QuestionRepository;
+import com.squirrel.courses.dataaccess.repositories.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,77 +20,70 @@ import java.util.List;
 @Service
 public class TestService implements ITestService{
 
-    private IAnswerDAO answerDAO;
-    private IQuestionDAO questionDAO;
-    private ITestDAO testDAO;
+    @Autowired
+    private TestRepository testRepository;
 
     @Autowired
-    public void setQuestionDAO(IQuestionDAO questionDAO) {
-        this.questionDAO = questionDAO;
-    }
+    private QuestionRepository questionRepository;
 
     @Autowired
-    public void setTestDAO(ITestDAO testDAO) {
-        this.testDAO = testDAO;
-    }
+    private AnswerRepository answerRepository;
 
-    @Autowired
-    public void setAnswerDAO(IAnswerDAO answerDAO) {
-        this.answerDAO = answerDAO;
+    @Override
+    public Test findTestById(int id){
+        return testRepository.findTestById(id);
     }
 
     @Override
-    public Test findTestById(int id) {
-        return testDAO.findTestById(id);
+    public Test findTestByLesson(int lesson){
+        return testRepository.findTestByLesson(lesson);
     }
 
     @Override
-    public Test findTestByLesson(int lesson) {
-        return testDAO.findTestByLesson(lesson);
+    public Test findExamByCourse(int course){
+        return testRepository.findExamByCourse(course);
     }
 
     @Override
-    public Test findExamByCourse(int course) {
-        return testDAO.findExamByCourse(course);
+    public  boolean addTest(Test test){
+        return (testRepository.save(test)!=null);
     }
 
     @Override
-    public boolean addTest(Test test) {
-        return testDAO.addTest(test);
+    public boolean deleteTest(int id){
+        Test test = findTestById(id);
+        if (test != null){
+            testRepository.delete(test);
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public boolean deleteTest(int testId) {
-        return testDAO.deleteTest(testId);
+    public int getLastTest(){
+        return testRepository.getLastTest();
     }
 
     @Override
-    public int getLastTest() {
-        return testDAO.getLastTest();
+    public List<Question> findQuestionsByTest(int test){
+        return questionRepository.findQuestionsByTest(test);
     }
 
     @Override
-    public List<Question> findQuestionsByTest(int test) {
-        return questionDAO.findQuestionsByTest(test);
+    public boolean addQuestion(Question quest){
+        return (questionRepository.save(quest)!=null);
     }
 
     @Override
-    public boolean addQuestion(Question quest) {
-        return questionDAO.addQuestion(quest);
+    public int getLastQuestion(){
+        return questionRepository.getLastQuestion();
     }
 
-    @Override
-    public int getLastQuestion() {
-        return questionDAO.getLastQuestion();
-    }
-
-    @Override
     public List<Answer> findAnswersByQuestion(int quest){
-        return answerDAO.findAnswersByQuestion(quest);
+        return answerRepository.findAnswersByQuestion(quest);
     }
 
-    @Override
-    public boolean addAnswer(Answer ans) {
-        return answerDAO.addAnswer(ans);
+    public boolean addAnswer(Answer ans){
+        return (answerRepository.save(ans)!=null);
     }
 }

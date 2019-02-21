@@ -1,15 +1,27 @@
 package com.squirrel.courses.dataaccess.model;
 
-/**
- * Class Course represents the entity of training course with main information about it.
- *
- * @author    Maxim Tytskiy
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "course")
 public class Course {
+    @Id
+    @Column(name = "id")
     private int id;
-    private String lecturer;
+
+    @Column(name = "course_name")
     private String courseName;
+
+    @Column(name = "lecturer")
+    private String lecturer;
+
+    @Column(name = "theme")
     private String theme;
+
+    @Column(name = "description")
     private String description;
 
     public Course(int id, String lecturer, String courseName, String theme, String description) {
@@ -18,6 +30,14 @@ public class Course {
         this.courseName = courseName;
         this.theme = theme;
         this.description = description;
+    }
+
+    public Course() {
+        this.id = 0;
+        this.lecturer = "";
+        this.courseName = "";
+        this.theme = "";
+        this.description = "";
     }
 
     public Course(String lecturer, String courseName, String theme, String description) {
@@ -62,4 +82,5 @@ public class Course {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

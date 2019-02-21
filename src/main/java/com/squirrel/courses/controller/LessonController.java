@@ -1,7 +1,6 @@
 package com.squirrel.courses.controller;
 
 import com.squirrel.courses.dataaccess.model.*;
-import com.squirrel.courses.service.test.ITestService;
 import com.squirrel.courses.service.lesson.ILessonService;
 import com.squirrel.courses.service.course.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class LessonController {
     private ICourseService courseService;
 
     @Autowired
-    public LessonController(ILessonService lessonService, ICourseService courseService, ITestService testService){
+    public LessonController(ILessonService lessonService, ICourseService courseService){
         this.lessonService = lessonService;
         this.courseService = courseService;
     }
@@ -84,12 +83,9 @@ public class LessonController {
         }
 
         Lesson lesson = new Lesson(courseId, lessName, description, material);
-        boolean success = lessonService.addLesson(lesson);
+        lessonService.addLesson(lesson);
 
-        if (success)
-            model.addAttribute(MESSAGE, "Lesson is added!");
-        else
-            model.addAttribute(MESSAGE, "Lesson adding failed!");
+        model.addAttribute(MESSAGE, "Lesson is added!");
 
         return new ModelAndView("redirect:/course?courseId=" + courseId, model);
     }
