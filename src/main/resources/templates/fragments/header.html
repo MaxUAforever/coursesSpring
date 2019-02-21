@@ -11,22 +11,21 @@
                 <img th:src="@{/img/header/logo.png}" alt="logo">
             </div>
             <headercount>
-                <div class="item"><a th:href="@{/allcourses}">Courses</a></div>
+                <div class="item"><a th:href="@{/}">Courses</a></div>
                 <div class="item"><a th:href="@{/about}">About</a></div>
 
-                <form class="header_form" th:action="@{/allcourses}" method="post">
+                <form class="header_form" th:action="@{/}" method="post">
                     <input type="search" class="input_header" name="courseName" placeholder="Search courses">
                     <input type="image" class="input_header" id = "buttonSearch" th:src="@{/img/header/loupe.png}" alt="Search">
                 </form>
             </headercount>
             <div class="reg">
-                <!--<div id="adminimg"></div>-->
                 <img id="user_icon" th:src="@{/img/header/user_icon.png}" alt="">
                 <a class="header_name" th:if = "${#request.userPrincipal != null}" th:href="@{/profile}">&emsp;My Profile</a>
                 <a class="header_name" th:if = "${#request.userPrincipal == null}" th:href="@{/login}">&emsp;Sign In</a>
             </div>
             <div class="log">
-              <a th:if = "${#request.userPrincipal}" th:href="@{/logout}">Log Out</a>
+                <a th:if = "${#request.userPrincipal}" th:href="@{/logout}">Log Out</a>
             </div>
         </header>
     </div>

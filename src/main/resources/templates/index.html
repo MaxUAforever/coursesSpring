@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <div th:replace="fragments/header :: header-css"/>
+    <link rel="stylesheet"  type="text/css" href="/css/allcourses.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"/>
+    <div class="leftMainCol">
+        <div id="specs">
+            <h2>Specializations</h2>
+            <div id="themes"></div>
+        </div>
+    </div>
+    <div class="rightMainCol">
+        <div id="courses"></div>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
